@@ -1,2 +1,3 @@
-# Watch-mount-geiger-counter
-A watch mount geiger counter inspired by metro 2033
+DIY geiger counter
+
+## This repo contains the code to drive the DIY geiger counter. 
