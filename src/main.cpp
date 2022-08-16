@@ -1,16 +1,17 @@
 #include <Arduino.h>
-#define LOG_PERIOD 5000 //miliseconds
+#define LOG_PERIOD 5000
 
-unsigned long counts; //variable for GM Tube events
+volatile unsigned long counts; //variable for GM Tube events
 unsigned long previousMillis; //variable for measuring time
 unsigned long currentMillis;
-unsigned long totalCounts;
+volatile unsigned long totalCounts;
 
 
 
 void impulse() { //calls on geiger event
 
 counts++;
+totalCounts++;
 
 }
 
@@ -38,8 +39,7 @@ if (currentMillis - previousMillis > LOG_PERIOD) {
 
 previousMillis = currentMillis;
 
-totalCounts =+ counts;
-Serial.print("Counts: "); Serial.print(counts); Serial.print(" Total Count: "); Serial.println(totalCounts);
+Serial.print("Counts :"); Serial.print(counts); Serial.print(" Total Counts : "); Serial.println(totalCounts);
 
 counts = 0;
 
