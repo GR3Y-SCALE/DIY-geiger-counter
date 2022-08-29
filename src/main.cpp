@@ -24,12 +24,12 @@ void initArray() {
     }
 }
 
-int arrayAvg() {
-    int avgCounts = 0;
+int arrayTotal() {
+    int totalCounts = 0;
     for (int i = 0; i < NUM; i++) {
-        avgCounts += countArray[i];
+        totalCounts += countArray[i];
     }
-    return avgCounts / NUM;
+    return totalCounts;
 }
 
 unsigned long ConvertToSieverts(long cpm = 0) {
@@ -73,7 +73,7 @@ if (currentMillis - previousMillis > LOG_PERIOD) {
         arrayIndex = 0;
         countArray[arrayIndex] = counts;
     } 
-    countsPerMinute = scale(arrayAvg());
+    countsPerMinute = scale(arrayTotal());
 
     Serial.print("Counts Per Minute: "); Serial.print(countsPerMinute); Serial.print(" Seiverts: "); Serial.println(ConvertToSieverts(countsPerMinute)); Serial.print("index: "); Serial.println(counts);
     counts = 0;
